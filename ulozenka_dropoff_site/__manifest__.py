@@ -10,6 +10,9 @@
         'views/delivery_view.xml',
         'views/website_sale_delivery_templates.xml',
     ],
+       'images': [
+        'static/description/logo.png',
+    ],
     'qweb': [],
     'installable': True,
     'auto_install': True,
