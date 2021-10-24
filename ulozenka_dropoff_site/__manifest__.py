@@ -11,7 +11,7 @@
         'views/website_sale_delivery_templates.xml',
     ],
        'images': [
-        'description/logo.png',
+        'static/description/logo.png',
     ],
     'qweb': [],
     'installable': True,
