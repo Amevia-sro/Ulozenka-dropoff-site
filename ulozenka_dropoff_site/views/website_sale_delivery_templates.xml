@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="payment_delivery_methods" name="Delivery Methods (Dropoff Sites)" inherit_id="website_sale_delivery.payment_delivery_methods">
+        <xpath expr="//label" position="after">
+            <t t-if="delivery.dropoff_site == True">
+                <span class="nav-item dropdown mr-2 my-1 my-lg-0">
+                    <a href="#" role="button" class="btn" data-toggle="dropdown">
+                        <i class="fa fa-map-marker"/>
+                        <t t-if="order.partner_shipping_id in delivery.partner_ids">
+                            <t t-esc="order.partner_shipping_id.name"/>
+                        </t>
+                        <t t-else="">
+                            <t>Select Site</t>
+                        </t>
+                        <div class="dropdown-menu" style="height: 200px; overflow: scroll;">
+                            <t t-foreach="delivery.partner_ids" t-as="partner">
+                                <a t-att-href="'/shop/update_shipping?partner_id=%s' % partner.id" t-attf-class="dropdown-item d-flex align-items-center justify-content-between #{'active' if partner.name == order.partner_shipping_id.name else ''}">
+                                    <t t-esc="partner.name"/>
+                                </a>
+                            </t>
+                        </div>
+                    </a>
+                </span>
+            </t>
+        </xpath>
+    </template>
+</odoo>
